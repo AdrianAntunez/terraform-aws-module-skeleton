@@ -8,10 +8,15 @@ jobs:
         shell: bash
         working-directory: ./test
     steps:
-      - uses: actions/checkout@v3
-      - uses: hashicorp/setup-terraform@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Get terraform version variable
+        run: source ../terraform.env
+      - name: Setup terraform version
+        uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.3.9
-      - run: |
+          terraform_version: ${TERRAFORM_VERSION}
+      - name: Run terraform init and validate to test module
+        run: |
           terraform init
           terraform validate

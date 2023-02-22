@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 script_dir=$(dirname $(realpath $0))
-DOCKER_COMPOSE_COMMAND="docker-compose -f docker-compose.yml run --rm"
+DOCKER_COMPOSE_COMMAND="docker-compose -f docker-compose.yml --env-file terraform.env run --rm"
 
 # Jump into script dir
 cd $script_dir
@@ -16,7 +16,7 @@ if [ $# -ge 1 ]; then
 else
     echo -e """
     Help: 
-        $0 ftm --recursive [extra_terraform_parameters] ../
+        $0 ftm [extra_terraform_parameters]
             Runs terraform format recursivelly in all module directory and its subdirectories
             [extra_terraform_parameters]: Any extra terraform parameters for fmt e.g: -list=false
 

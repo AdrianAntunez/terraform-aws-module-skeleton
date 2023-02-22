@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   terraform:
-    image: hashicorp/terraform:1.3.9
+    image: hashicorp/terraform:${TERRAFORM_VERSION}
     volumes:
       - .:/main
     working_dir: /main
