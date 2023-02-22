@@ -26,7 +26,7 @@ The test folder is used to initialize and allow module validation through severa
 
 The script `run.sh`  is a wrapper to allow running terraform without any extra dependence besides `docker` and `docker-compose`. Basically the script jumps into the root folder, executes the corresponding terraform command using terraform docker image and goes back to the original location. The allowed commands are defined below:
 
-- `./run.sh fmt [extra_terraform_parameters]`: The script runs `terraform fmt --recursive [extra_terraform_parameters] ../` using terraform docker image where `[extra_terraform_parameters]` can be any parameter. Its executed in module root so that all files can be formatted
+- `./run.sh fmt [extra_terraform_parameters]`: The script runs `terraform fmt --recursive [extra_terraform_parameters]` using terraform docker image where `[extra_terraform_parameters]` can be any parameter. Its executed in module root so that all files can be formatted
 - `./run.sh terraform_command [extra_terraform_parameters]`: The script runs `terraform terraform_command [extra_terraform_parameters]` using terraform docker image inside `test/` folder. Where `terraform_command` can be any command allowed by terraform binary and `extra_terraform_parameters` are optional and takes any parameter and any nymber of those
 
 ## Pending TODOs
